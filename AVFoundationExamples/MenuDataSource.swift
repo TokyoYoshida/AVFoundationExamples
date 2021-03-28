@@ -27,6 +27,11 @@ class MenuViewModel {
             title: "Simple Recording",
             description: "Recording video.",
             prefix: "SimpleRecording"
+        ),
+        MenuItem (
+            title: "Frame Recording",
+            description: "Frame-by-frame recording using AVAssetsWriter.",
+            prefix: "FrameRecording"
         )
     ]
     

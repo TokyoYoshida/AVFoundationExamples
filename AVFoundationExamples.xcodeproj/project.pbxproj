@@ -14,6 +14,9 @@
 		1EA9679B26106848007C0B84 /* VideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9679826106848007C0B84 /* VideoRecorder.swift */; };
 		1EA9679C26106848007C0B84 /* SimpleRecording.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA9679926106848007C0B84 /* SimpleRecording.storyboard */; };
 		1EA9679D26106848007C0B84 /* SimpleRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9679A26106848007C0B84 /* SimpleRecordingViewController.swift */; };
+		1EA967AE261069A8007C0B84 /* FrameRecording.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA967AB261069A8007C0B84 /* FrameRecording.storyboard */; };
+		1EA967AF261069A8007C0B84 /* FrameVideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA967AC261069A8007C0B84 /* FrameVideoRecorder.swift */; };
+		1EA967B0261069A8007C0B84 /* FrameRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA967AD261069A8007C0B84 /* FrameRecordingViewController.swift */; };
 		1EF1D86D261062F400CEE9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1D86C261062F400CEE9CB /* AppDelegate.swift */; };
 		1EF1D86F261062F400CEE9CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1D86E261062F400CEE9CB /* SceneDelegate.swift */; };
 		1EF1D876261062F500CEE9CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EF1D875261062F500CEE9CB /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		1EA9679826106848007C0B84 /* VideoRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoRecorder.swift; sourceTree = "<group>"; };
 		1EA9679926106848007C0B84 /* SimpleRecording.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SimpleRecording.storyboard; sourceTree = "<group>"; };
 		1EA9679A26106848007C0B84 /* SimpleRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRecordingViewController.swift; sourceTree = "<group>"; };
+		1EA967AB261069A8007C0B84 /* FrameRecording.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FrameRecording.storyboard; sourceTree = "<group>"; };
+		1EA967AC261069A8007C0B84 /* FrameVideoRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameVideoRecorder.swift; sourceTree = "<group>"; };
+		1EA967AD261069A8007C0B84 /* FrameRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameRecordingViewController.swift; sourceTree = "<group>"; };
 		1EF1D869261062F400CEE9CB /* AVFoundationExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVFoundationExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF1D86C261062F400CEE9CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EF1D86E261062F400CEE9CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EA967AA26106981007C0B84 /* FrameRecording */ = {
+			isa = PBXGroup;
+			children = (
+				1EA967AB261069A8007C0B84 /* FrameRecording.storyboard */,
+				1EA967AC261069A8007C0B84 /* FrameVideoRecorder.swift */,
+				1EA967AD261069A8007C0B84 /* FrameRecordingViewController.swift */,
+			);
+			path = FrameRecording;
+			sourceTree = "<group>";
+		};
 		1EF1D860261062F400CEE9CB = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1EF5F12F261063E300560D95 /* SimpleRecording */,
+				1EA967AA26106981007C0B84 /* FrameRecording */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -263,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF1D879261062F500CEE9CB /* LaunchScreen.storyboard in Resources */,
+				1EA967AE261069A8007C0B84 /* FrameRecording.storyboard in Resources */,
 				1EF1D876261062F500CEE9CB /* Assets.xcassets in Resources */,
 				1EA9678F261067DE007C0B84 /* Main.storyboard in Resources */,
 				1EA9679C26106848007C0B84 /* SimpleRecording.storyboard in Resources */,
@@ -293,6 +311,8 @@
 				1EA96790261067DE007C0B84 /* MenuViewController.swift in Sources */,
 				1EA9678E261067DE007C0B84 /* MenuDataSource.swift in Sources */,
 				1EF1D86D261062F400CEE9CB /* AppDelegate.swift in Sources */,
+				1EA967B0261069A8007C0B84 /* FrameRecordingViewController.swift in Sources */,
+				1EA967AF261069A8007C0B84 /* FrameVideoRecorder.swift in Sources */,
 				1EA96791261067DE007C0B84 /* MenuItemCell.swift in Sources */,
 				1EA9679D26106848007C0B84 /* SimpleRecordingViewController.swift in Sources */,
 				1EF1D86F261062F400CEE9CB /* SceneDelegate.swift in Sources */,
