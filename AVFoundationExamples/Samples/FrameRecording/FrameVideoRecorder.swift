@@ -57,7 +57,10 @@ class FrameVideoRecorder: NSObject {
                 kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
             ]
             self.captureSession.addOutput(videoDataOutput)
-            
+
+            height = videoDataOutput.videoSettings["Height"] as! Int?
+            width = videoDataOutput.videoSettings["Width"] as! Int?
+
             let audioDataOutput = AVCaptureAudioDataOutput()
             audioDataOutput.setSampleBufferDelegate(self, queue: self.recordingQueue)
             self.captureSession.addOutput(audioDataOutput)
@@ -78,11 +81,33 @@ class FrameVideoRecorder: NSObject {
     
     func startRecording(fileURL: URL, completionHandler: @escaping ((Bool, Error?) -> Void)) {
         self.completionHandler = completionHandler
-//        fileOutput.startRecording(to: fileURL as URL, recordingDelegate: self)
+        lockQueue.sync() {
+            if !self.isCapturing{
+                self.isPaused = false
+                self.isDiscontinue = false
+                self.isCapturing = true
+                self.timeOffset = CMTimeMake(value: 0, timescale: 0)
+            }
+        }
     }
     
     func stopRecording() {
-//        fileOutput.stopRecording()
+        self.lockQueue.sync() {
+            if self.isCapturing{
+                self.isCapturing = false
+                DispatchQueue.main.async {
+                    self.videoWriter!.finish { () -> Void in
+                        self.videoWriter = nil
+                        PHPhotoLibrary.shared().performChanges({
+                            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.filePathUrl() as URL)
+                        }) { [weak self] completed, error in
+                            self?.completionHandler?(completed ,error)
+                        }
+                    }
+                    
+                }
+            }
+        }
     }
 }
 
