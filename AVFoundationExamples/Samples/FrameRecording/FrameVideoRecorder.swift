@@ -15,6 +15,8 @@ class FrameVideoRecorder: NSObject {
     let captureSession = AVCaptureSession()
     fileprivate let fileOutput = AVCaptureMovieFileOutput()
     fileprivate var completionHandler: ((Bool, Error?) -> Void)?
+    let recordingQueue =  DispatchQueue(label: "FrameRecordingQueue")
+    
     var isRecording: Bool {
         get {
             fileOutput.isRecording
@@ -22,12 +24,27 @@ class FrameVideoRecorder: NSObject {
     }
     
     func prepare() throws {
-        func connectInputAndOutput() throws {
+        func connectInput() throws {
             let videoInput = try AVCaptureDeviceInput(device: videoDevice!)
             captureSession.addInput(videoInput)
             
             let audioInput = try AVCaptureDeviceInput(device: audioDevice!)
                 captureSession.addInput(audioInput)
+        }
+        func connectOutput() {
+            let videoDataOutput = AVCaptureVideoDataOutput()
+            videoDataOutput.setSampleBufferDelegate(self, queue: self.recordingQueue)
+            videoDataOutput.alwaysDiscardsLateVideoFrames = true
+            videoDataOutput.videoSettings = [
+                kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange
+            ]
+            self.captureSession.addOutput(videoDataOutput)
+            
+            let audioDataOutput = AVCaptureAudioDataOutput()
+            audioDataOutput.setSampleBufferDelegate(self, queue: self.recordingQueue)
+            self.captureSession.addOutput(audioDataOutput)
+
+            self.captureSession.startRunning()
         }
         func setCameraImageQuality() {
             captureSession.sessionPreset = AVCaptureSession.Preset.photo
@@ -36,7 +53,7 @@ class FrameVideoRecorder: NSObject {
             fatalError("Device cannot initialize.")
         }
         
-        try connectInputAndOutput()
+        try connectInput()
         setCameraImageQuality()
         captureSession.addOutput(fileOutput)
         captureSession.startRunning()
@@ -49,6 +66,12 @@ class FrameVideoRecorder: NSObject {
     
     func stopRecording() {
         fileOutput.stopRecording()
+    }
+}
+
+
+extension FrameVideoRecorder: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
     }
 }
 
