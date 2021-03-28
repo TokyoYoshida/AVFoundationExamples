@@ -25,11 +25,15 @@ class FrameVideoRecorder: NSObject {
     
     func prepare() throws {
         func connectInput() throws {
+            let videoDevice = AVCaptureDevice.default(for: AVMediaType.video)
+            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
+
+            self.videoDevice?.activeVideoMinFrameDuration = CMTimeMake(value: 1, timescale: 30)
             let videoInput = try AVCaptureDeviceInput(device: videoDevice!)
-            captureSession.addInput(videoInput)
-            
+            self.captureSession.addInput(videoInput)
+
             let audioInput = try AVCaptureDeviceInput(device: audioDevice!)
-                captureSession.addInput(audioInput)
+            self.captureSession.addInput(audioInput);
         }
         func connectOutput() {
             let videoDataOutput = AVCaptureVideoDataOutput()
@@ -43,8 +47,6 @@ class FrameVideoRecorder: NSObject {
             let audioDataOutput = AVCaptureAudioDataOutput()
             audioDataOutput.setSampleBufferDelegate(self, queue: self.recordingQueue)
             self.captureSession.addOutput(audioDataOutput)
-
-            self.captureSession.startRunning()
         }
         func setCameraImageQuality() {
             captureSession.sessionPreset = AVCaptureSession.Preset.photo
@@ -54,24 +56,25 @@ class FrameVideoRecorder: NSObject {
         }
         
         try connectInput()
+        connectOutput()
         setCameraImageQuality()
-        captureSession.addOutput(fileOutput)
+//        captureSession.addOutput(fileOutput)
         captureSession.startRunning()
     }
     
     func startRecording(fileURL: URL, completionHandler: @escaping ((Bool, Error?) -> Void)) {
         self.completionHandler = completionHandler
-        fileOutput.startRecording(to: fileURL as URL, recordingDelegate: self)
+//        fileOutput.startRecording(to: fileURL as URL, recordingDelegate: self)
     }
     
     func stopRecording() {
-        fileOutput.stopRecording()
+//        fileOutput.stopRecording()
     }
 }
 
 
 extension FrameVideoRecorder: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     }
 }
 
