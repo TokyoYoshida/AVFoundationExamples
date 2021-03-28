@@ -17,6 +17,9 @@
 		1EF5F1282610639400560D95 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5F1232610639400560D95 /* MenuItemCell.swift */; };
 		1EF5F1292610639400560D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5F1242610639400560D95 /* Main.storyboard */; };
 		1EF5F12A2610639400560D95 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5F1262610639400560D95 /* MenuViewController.swift */; };
+		1EF5F134261063F000560D95 /* SimpleRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5F130261063F000560D95 /* SimpleRecordingViewController.swift */; };
+		1EF5F135261063F000560D95 /* SimpleRecording.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5F131261063F000560D95 /* SimpleRecording.storyboard */; };
+		1EF5F136261063F000560D95 /* VideoRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5F133261063F000560D95 /* VideoRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		1EF5F1232610639400560D95 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItemCell.swift; path = ../../ExampleOfiOSLiDAR/ExampleOfiOSLiDAR/MenuItemCell.swift; sourceTree = "<group>"; };
 		1EF5F1252610639400560D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../ExampleOfiOSLiDAR/ExampleOfiOSLiDAR/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EF5F1262610639400560D95 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../../ExampleOfiOSLiDAR/ExampleOfiOSLiDAR/MenuViewController.swift; sourceTree = "<group>"; };
+		1EF5F130261063F000560D95 /* SimpleRecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleRecordingViewController.swift; path = ../../../../RecordingVideoExample/RecordingVideoExample/SimpleRecordingViewController.swift; sourceTree = "<group>"; };
+		1EF5F132261063F000560D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../RecordingVideoExample/RecordingVideoExample/Base.lproj/SimpleRecording.storyboard; sourceTree = "<group>"; };
+		1EF5F133261063F000560D95 /* VideoRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoRecorder.swift; path = ../../../../RecordingVideoExample/RecordingVideoExample/VideoRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 				1EF5F1222610639400560D95 /* MenuDataSource.swift */,
 				1EF5F1232610639400560D95 /* MenuItemCell.swift */,
 				1EF5F1262610639400560D95 /* MenuViewController.swift */,
+				1EF5F12E261063BA00560D95 /* Samples */,
 				1EF1D875261062F500CEE9CB /* Assets.xcassets */,
 				1EF1D877261062F500CEE9CB /* LaunchScreen.storyboard */,
 				1EF1D87A261062F500CEE9CB /* Info.plist */,
@@ -132,6 +139,24 @@
 				1EF1D890261062F500CEE9CB /* Info.plist */,
 			);
 			path = AVFoundationExamplesUITests;
+			sourceTree = "<group>";
+		};
+		1EF5F12E261063BA00560D95 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				1EF5F12F261063E300560D95 /* SimpleRecording */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		1EF5F12F261063E300560D95 /* SimpleRecording */ = {
+			isa = PBXGroup;
+			children = (
+				1EF5F131261063F000560D95 /* SimpleRecording.storyboard */,
+				1EF5F133261063F000560D95 /* VideoRecorder.swift */,
+				1EF5F130261063F000560D95 /* SimpleRecordingViewController.swift */,
+			);
+			path = SimpleRecording;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +265,7 @@
 				1EF5F1292610639400560D95 /* Main.storyboard in Resources */,
 				1EF1D879261062F500CEE9CB /* LaunchScreen.storyboard in Resources */,
 				1EF1D876261062F500CEE9CB /* Assets.xcassets in Resources */,
+				1EF5F135261063F000560D95 /* SimpleRecording.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,10 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF5F134261063F000560D95 /* SimpleRecordingViewController.swift in Sources */,
 				1EF5F1272610639400560D95 /* MenuDataSource.swift in Sources */,
 				1EF5F12A2610639400560D95 /* MenuViewController.swift in Sources */,
 				1EF5F1282610639400560D95 /* MenuItemCell.swift in Sources */,
 				1EF1D86D261062F400CEE9CB /* AppDelegate.swift in Sources */,
+				1EF5F136261063F000560D95 /* VideoRecorder.swift in Sources */,
 				1EF1D86F261062F400CEE9CB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +346,14 @@
 				1EF5F1252610639400560D95 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1EF5F131261063F000560D95 /* SimpleRecording.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1EF5F132261063F000560D95 /* Base */,
+			);
+			name = SimpleRecording.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
