@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E218A6F26107054003AD94E /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E218A6E26107054003AD94E /* VideoWriter.swift */; };
 		1EA9678E261067DE007C0B84 /* MenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9678A261067DD007C0B84 /* MenuDataSource.swift */; };
 		1EA9678F261067DE007C0B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA9678B261067DD007C0B84 /* Main.storyboard */; };
 		1EA96790261067DE007C0B84 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9678C261067DD007C0B84 /* MenuViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E218A6E26107054003AD94E /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		1EA9678A261067DD007C0B84 /* MenuDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDataSource.swift; sourceTree = "<group>"; };
 		1EA9678B261067DD007C0B84 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1EA9678C261067DD007C0B84 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				1EA967AB261069A8007C0B84 /* FrameRecording.storyboard */,
 				1EA967AC261069A8007C0B84 /* FrameVideoRecorder.swift */,
+				1E218A6E26107054003AD94E /* VideoWriter.swift */,
 				1EA967AD261069A8007C0B84 /* FrameRecordingViewController.swift */,
 			);
 			path = FrameRecording;
@@ -308,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E218A6F26107054003AD94E /* VideoWriter.swift in Sources */,
 				1EA96790261067DE007C0B84 /* MenuViewController.swift in Sources */,
 				1EA9678E261067DE007C0B84 /* MenuDataSource.swift in Sources */,
 				1EF1D86D261062F400CEE9CB /* AppDelegate.swift in Sources */,
