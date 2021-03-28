@@ -33,7 +33,7 @@ class FrameVideoRecorder: NSObject {
 
     var isRecording: Bool {
         get {
-            fileOutput.isRecording
+            isCapturing
         }
     }
     
@@ -102,6 +102,7 @@ class FrameVideoRecorder: NSObject {
                             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.filePathUrl() as URL)
                         }) { [weak self] completed, error in
                             self?.completionHandler?(completed ,error)
+                            self?.fileIndex += 1
                         }
                     }
                     
